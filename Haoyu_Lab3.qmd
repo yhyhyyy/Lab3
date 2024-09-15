@@ -71,6 +71,20 @@ cor(elev$temp, elev$day, use="complete")
 
 # Question 7: Exploratory graphs
 ```{r}
+hist(met$elev, 
+     main="Histogram of Elevation", 
+     col="lightblue", 
+     border="black")
+
+hist(met$temp, 
+     main="Histogram of Temperature", 
+     col="lightgreen", 
+     border="black")
+
+hist(met$wind.sp, 
+     main="Histogram of Wind Speed", 
+     col="lightcoral", 
+     border="black")
 library(leaflet)
 leaflet(elev) %>%
   addProviderTiles('OpenStreetMap') %>% 
@@ -81,8 +95,15 @@ elev$date <- with(elev, ymd_h(paste(year, month, day, hour, sep= ' ')))
 summary(elev$date)
 elev <- elev[order(elev$date), ]
 head(elev)
-plot(elev$day, elev$temp, type='l')
-plot(elev$day, elev$wind.sp, type='l')
+plot(elev$date, elev$temp, type='l')
+plot(elev$date, elev$wind.sp, type='l')
+
+
 ```
 
+# Question 8: Ask questions
+I want to know the temperature distribution at different elevation.
+```{r}
+boxplot(met$temp ~ met$elev, main="Temperature by Elevation")
+```
 
