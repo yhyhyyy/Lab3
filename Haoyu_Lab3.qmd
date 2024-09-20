@@ -102,7 +102,7 @@ plot(elev$date, elev$wind.sp, type='l')
 ```
 
 # Question 8: Ask questions
-I want to know the temperature distribution at different elevation.
+I want to know the temperature distribution at different elevation. So, I use boxplot to find their relationship. We can see that as the elevation increases, the temperature decreases.
 ```{r}
 boxplot(met$temp ~ met$elev, main="Temperature by Elevation")
 ```
